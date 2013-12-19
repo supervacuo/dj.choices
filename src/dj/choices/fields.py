@@ -34,7 +34,7 @@ from django.db import models
 from django.db.models.fields import IntegerField
 from django.utils.text import capfirst
 from django.utils.translation import ugettext_lazy as _
-from dj.choices import unset, Choices, Gender
+from dj.choices import unset, Choices, Country
 
 import six
 
@@ -51,7 +51,7 @@ class ChoiceField(six.with_metaclass(SubfieldBase, IntegerField)):
 
     def __init__(self, *args, **kwargs):
         if kwargs.get('_in_south'): # workaround for South removing `choices`
-            kwargs['choices'] = Gender
+            kwargs['choices'] = Country
             del kwargs['_in_south']
         if 'choices' not in kwargs or not isinstance(kwargs['choices'], type):
             raise exceptions.ImproperlyConfigured("No choices class specified.")
