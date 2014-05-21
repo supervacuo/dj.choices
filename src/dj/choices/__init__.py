@@ -164,17 +164,17 @@ class Choice(ChoicesEntry):
 
     def __repr__(self):
         rawval = self.raw
-        name = "{!r}".format(self.name)
+        name = "{0!r}".format(self.name)
         if name[0] in 'bru':
             name = name[2:-1]
         else:
             name = name[1:-1]
-        rawval = "{!r}".format(rawval)
+        rawval = "{0!r}".format(rawval)
         if rawval[0] in 'bru':
             rawval = rawval[2:-1]
         else:
             rawval = rawval[1:-1]
-        result = "<{}: {} (id: {}, name: {})>".format(self.__class__.__name__,
+        result = "<{0}: {1} (id: {2}, name: {3})>".format(self.__class__.__name__,
             rawval, self.id, name)
         if six.PY2:
             result = result.encode('utf8')
