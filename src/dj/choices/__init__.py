@@ -76,6 +76,9 @@ class ChoicesEntry(int):
         self.__name = value.strip('_') if value else value
         self.__raw_name = value
 
+    def __str__(self):
+       return str(self.id)
+
     def __unicode__(self, raw=False):
         """Always returns Unicode."""
         name = self.name
