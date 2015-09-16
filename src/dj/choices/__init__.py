@@ -91,13 +91,6 @@ class ChoicesEntry(int):
         return "<{}: {} (id: {})>".format(self.__class__.__name__,
             name, self.id)
 
-    def __str__(self, raw=False):
-        """Returns Unicode on Py3, bytes on Py2."""
-        result = self.__unicode__(raw=raw)
-        if six.PY2:
-            result = result.encode('utf8')
-        return result
-
     def __repr__(self):
         """Returns escaped Unicode on Py3, escaped bytes on Py2."""
         return self.__str__(raw=True)
@@ -158,12 +151,6 @@ class Choice(ChoicesEntry):
 
     def __unicode__(self):
         return self.desc
-
-    def __str__(self):
-        result = self.__unicode__()
-        if six.PY2:
-            result = result.encode('utf8')
-        return result
 
     def __repr__(self):
         rawval = self.raw
