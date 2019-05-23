@@ -138,6 +138,13 @@ class ChoiceGroup(ChoicesEntry):
         self.choices = []
 
 
+def _new(cls, desc, id, name):
+    o = cls.__new__(cls, id=id)
+    o.raw = desc
+    o.name = name
+    return o
+
+
 class Choice(ChoicesEntry):
     """A single choice."""
 
@@ -169,6 +176,9 @@ class Choice(ChoicesEntry):
         if six.PY2:
             result = result.encode('utf8')
         return result
+
+    def __reduce__(self):
+        return _new, (self.__class__, self.raw, int(self), self.name), None
 
 
 def _getter(name, given, returns, found, getter):
