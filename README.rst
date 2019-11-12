@@ -327,6 +327,11 @@ The easiest way would be to run::
 Change Log
 ----------
 
+0.12.0
+~~~~~~
+
+* Add support for Django 1.11 - 2.2
+
 0.11.0
 ~~~~~~
 
